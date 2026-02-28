@@ -1,17 +1,30 @@
-import ToolList from "./Components/ToolList/ToolList";
-import "./index.css";
+import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import ChatPage from './Pages/ChatPage';
 
-export function App() {
+const theme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
+function App() {
+
   return (
-    <div className="app">
-      <h1>KAI-Tools</h1>
-      <p>
-        CRUD KAI tools
-      </p>
-      <ToolList />
+    <ThemeProvider theme={theme}>
 
-    </div>
-  );
+       <BrowserRouter>
+        <nav>
+          <Link to="/">Chat</Link> |{" "}
+        </nav>
+        <Routes>
+          <Route path="/" element={<ChatPage />} />
+        </Routes>
+      </BrowserRouter>
+
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
