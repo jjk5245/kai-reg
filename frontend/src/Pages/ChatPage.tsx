@@ -1,5 +1,5 @@
-import JiraAIAppBar from '../Components/JiraAIAppBar/JiraAIAppBar';
-import SessionTabs from '../Components/SessionTabs/SessionTabs';
+import JiraAIAppBar from '@/Components/AppBar/AppBar';
+import SessionTabs from '@/Components/SessionTabs/SessionTabs';
 
 const ChatPage = () => {
     return (

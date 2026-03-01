@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Box, Tabs, Tab } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
 
-import ChatPage, { type ChatMessage } from '../Chat/ChatPage.tsx';
+import Chat, { type ChatMessage } from '../Chat/Chat.tsx';
 import CreateOrEditSession from "./CreateOrEditSession";
 
 export interface ChatSession {
@@ -20,13 +20,13 @@ const SessionTabs =() => {
     setValue(newValue);
   }
 
-  const addMessage = (newMessage: ChatMessage, sessionId: string) => {
-    const sessionIndex = chatSessions.findIndex((session) => session.id === sessionId);
-    const session = { ...chatSessions[sessionIndex] };
-    session.messages = [...session.messages, newMessage];
-    chatSessions.splice(sessionIndex, 1, session);
-    setChatSessions(chatSessions);
-  }
+  // const addMessage = (newMessage: ChatMessage, sessionId: string) => {
+  //   const sessionIndex = chatSessions.findIndex((session) => session.id === sessionId);
+  //   const session = { ...chatSessions[sessionIndex] };
+  //   session.messages = [...session.messages, newMessage];
+  //   chatSessions.splice(sessionIndex, 1, session);
+  //   setChatSessions(chatSessions);
+  // }
 
   const addChatSession = () => {
     setSessionToEdit({
@@ -53,7 +53,7 @@ const SessionTabs =() => {
         </Box>
         { chatSessions.map((cs, index) => (
             <TabPanel key={cs.id} value={value} index={index}>
-              <ChatPage />
+              <Chat />
             </TabPanel>
           ))
         }

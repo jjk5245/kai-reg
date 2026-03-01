@@ -1,11 +1,16 @@
 import AppBar from '@mui/material/AppBar';
 import { IconButton, Typography, Toolbar, Box, MenuItem  } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { chatPageRoute, toolsPageRoute } from '@/App';
 
 export default function JiraAIAppBar() {
   const navigate = useNavigate();
   const goToToolPage = () => {
-    navigate('/tools');
+    navigate(toolsPageRoute);
+  }
+
+  const goToChatPage = () => {
+    navigate(chatPageRoute);
   }
 
   return (
@@ -20,8 +25,12 @@ export default function JiraAIAppBar() {
                 sx={{ mr: 2}}
                 />
             <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-                Jira AI
+                KAI
             </Typography>
+            
+            <MenuItem onClick={goToChatPage}>
+              <Typography sx={{ textAlign: 'center' }}>Chat Sessions</Typography>
+            </MenuItem>
 
             <MenuItem onClick={goToToolPage}>
               <Typography sx={{ textAlign: 'center' }}>Tools</Typography>

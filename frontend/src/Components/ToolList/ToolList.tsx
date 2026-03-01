@@ -1,62 +1,59 @@
 import * as React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
-import Switch from '@mui/material/Switch';
-import WifiIcon from '@mui/icons-material/Wifi';
-import BluetoothIcon from '@mui/icons-material/Bluetooth';
+import { Card, Divider, Switch } from '@mui/material';
+
+const activeColor ="#496a81";
+const inactiveColor ="#773344";
 
 export default function ToolList() {
-  const [checked, setChecked] = React.useState(['wifi']);
-
-  const handleToggle = (value: string) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
-  };
-
+    const exampleTools = [
+        {
+            name: "tool 1",
+            description: "tool 1 desc",
+            location: "https://example-tool.com",
+            enabled: true,
+            accesible: true,
+        },
+        {
+            name: "tool 2",
+            description: "tool 2 desc",
+            location: "https://example-tool.com",
+            enabled: true,
+            accesible: false,
+        },
+    ];
   return (
-    <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-      subheader={<ListSubheader>Settings</ListSubheader>}
-    >
-      <ListItem>
-        <ListItemIcon>
-          <WifiIcon />
-        </ListItemIcon>
-        <ListItemText id="switch-list-label-wifi" primary="Wi-Fi" />
-        <Switch
-          edge="end"
-          onChange={handleToggle('wifi')}
-          checked={checked.includes('wifi')}
-          inputProps={{
-            'aria-labelledby': 'switch-list-label-wifi',
-          }}
-        />
-      </ListItem>
-      <ListItem>
-        <ListItemIcon>
-          <BluetoothIcon />
-        </ListItemIcon>
-        <ListItemText id="switch-list-label-bluetooth" primary="Bluetooth" />
-        <Switch
-          edge="end"
-          onChange={handleToggle('bluetooth')}
-          checked={checked.includes('bluetooth')}
-          inputProps={{
-            'aria-labelledby': 'switch-list-label-bluetooth',
-          }}
-        />
-      </ListItem>
-    </List>
+    <Card sx={{ margin: 'auto', minWidth: '400px', marginTop: '.5rem', width: '80%', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <List subheader={<ListSubheader>Tools</ListSubheader>} >
+            <Divider />
+
+        {/* <ListItem>
+            <ListItemIcon>
+            <WifiIcon />
+            </ListItemIcon>
+            <ListItemText id="switch-list-label-wifi" primary="Wi-Fi" />
+        </ListItem>
+        <ListItem>
+            <ListItemIcon>
+            <BluetoothIcon />
+            </ListItemIcon>
+            <ListItemText id="switch-list-label-bluetooth" primary="Bluetooth" />
+        </ListItem> */}
+        {exampleTools.map(et => 
+            <ListItem>
+            <svg height="32" width="32">
+                <circle cx="15" cy="15" r="10" fill={et.accesible ? activeColor : inactiveColor} />
+            </svg>
+                <ListSubheader>{et.name}</ListSubheader>
+                <ListItemText>{et.description}</ListItemText>
+                <Switch />
+            </ListItem>
+        )}
+
+        </List>
+    </Card>
   );
 }
