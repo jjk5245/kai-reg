@@ -569,6 +569,323 @@
     }
   ],
   "keywords": "slow cooker beef stew, crockpot beef stew, Budget Bytes stew recipe"
+},
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Southwest Crock Pot Chicken and Rice",
+  "url": "https://www.eatingonadime.com/southwest-crock-pot-chicken-and-rice/",
+  "author": {
+    "@type": "Person",
+    "name": "Carrie"
+  },
+  "datePublished": "2025-01-26",
+  "description": "A creamy and cheesy slow cooker meal featuring chicken, black beans, corn, and southwest spices, served over rice.",
+  "prepTime": "PT10M",
+  "cookTime": "PT6H5M",
+  "totalTime": "PT6H15M",
+  "recipeYield": "6-8 servings",
+  "recipeCategory": "Main Course",
+  "recipeCuisine": "Mexican",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "680 kcal",
+    "carbohydrateContent": "65 g",
+    "proteinContent": "56 g",
+    "fatContent": "22 g",
+    "saturatedFatContent": "11 g",
+    "cholesterolContent": "144 mg",
+    "sodiumContent": "828 mg",
+    "fiberContent": "10 g",
+    "sugarContent": "8 g"
+  },
+  "recipeIngredient": [
+    "4 boneless skinless chicken breasts",
+    "1/2 onion, diced",
+    "1 can black beans, drained and rinsed",
+    "1 can corn, drained",
+    "1 can cream of chicken soup",
+    "1 can diced tomatoes with green chiles",
+    "1 cup milk",
+    "1 Tbsp taco seasoning",
+    "1 tsp paprika",
+    "1 tsp pepper",
+    "3 cups cooked white rice",
+    "2 cups sharp cheddar cheese, shredded"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Place the chicken at the bottom of a crock pot."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Top with the beans, corn, tomatoes, onion, cream of chicken soup, milk, paprika, taco seasoning, and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and cook on low for 6-8 hours (or on high for 3-4 hours)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove the chicken, shred it with two forks, and return it back to the crock pot."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the cooked rice and 1 cup of the shredded cheese."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Top with the remaining 1 cup of cheese. Cover and allow the cheese to melt for 3-5 minutes."
+    }
+  ],
+  "keywords": "crock pot, slow cooker, southwest, chicken and rice, easy dinner"
+},
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "One-Pot Spinach Beef Soup",
+  "url": "https://www.tasteofhome.com/recipes/one-pot-spinach-beef-soup/",
+  "author": {
+    "@type": "Person",
+    "name": "Taste of Home Test Kitchen"
+  },
+  "description": "A hearty, healthy one-pot soup featuring lean ground beef, fresh spinach, and savory herbs.",
+  "prepTime": "PT15M",
+  "cookTime": "PT20M",
+  "totalTime": "PT35M",
+  "recipeYield": "6 servings",
+  "recipeCategory": "Soup",
+  "recipeCuisine": "American",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "242 kcal",
+    "fatContent": "8 g",
+    "saturatedFatContent": "3 g",
+    "cholesterolContent": "47 mg",
+    "sodiumContent": "834 mg",
+    "carbohydrateContent": "19 g",
+    "fiberContent": "3 g",
+    "sugarContent": "4 g",
+    "proteinContent": "23 g"
+  },
+  "recipeIngredient": [
+    "1 pound lean ground beef (90% lean)",
+    "1 medium onion, chopped",
+    "2 garlic cloves, minced",
+    "4 cups beef broth",
+    "1 can (14-1/2 ounces) diced tomatoes, undrained",
+    "1 teaspoon dried oregano",
+    "1/2 teaspoon salt",
+    "1/4 teaspoon pepper",
+    "2 cups uncooked rotini pasta",
+    "4 cups fresh baby spinach"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a large saucepan, cook beef and onion over medium heat until meat is no longer pink; drain."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add garlic; cook 1 minute longer."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the broth, tomatoes, oregano, salt and pepper. Bring to a boil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add pasta. Reduce heat; cover and simmer for 8-10 minutes or until pasta is tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in spinach until wilted."
+    }
+  ],
+  "keywords": "one-pot meal, beef soup, spinach, healthy dinner, 30-minute meals"
+},
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Cilantro Beef Tacos",
+  "url": "https://www.tasteofhome.com/recipes/cilantro-beef-tacos/",
+  "author": {
+    "@type": "Person",
+    "name": "Taste of Home Test Kitchen"
+  },
+  "description": "Fresh cilantro and lime juice give these beef tacos a bright, zesty flavor that stands out from standard taco night fare.",
+  "prepTime": "PT20M",
+  "cookTime": "PT10M",
+  "totalTime": "PT30M",
+  "recipeYield": "4 servings",
+  "recipeCategory": "Main Course",
+  "recipeCuisine": "Mexican",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "394 kcal",
+    "fatContent": "18 g",
+    "saturatedFatContent": "7 g",
+    "cholesterolContent": "71 mg",
+    "sodiumContent": "742 mg",
+    "carbohydrateContent": "28 g",
+    "fiberContent": "3 g",
+    "sugarContent": "3 g",
+    "proteinContent": "28 g"
+  },
+  "recipeIngredient": [
+    "1 pound ground beef",
+    "1 small onion, finely chopped",
+    "1/2 cup chopped fresh cilantro",
+    "2 tablespoons lime juice",
+    "1 teaspoon salt",
+    "1/4 teaspoon pepper",
+    "8 taco shells, warmed",
+    "Optional toppings: Shredded lettuce, chopped tomatoes, shredded cheddar cheese, and sour cream"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a large skillet, cook beef and onion over medium heat until meat is no longer pink; drain."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the cilantro, lime juice, salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Spoon beef mixture into taco shells. Serve with toppings of your choice."
+    }
+  ],
+  "keywords": "ground beef, tacos, cilantro, quick dinner, 30-minute meals"
+},
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Garlic Basil Seared Scallops",
+  "url": "https://www.inspiredtaste.net/37110/garlic-basil-seared-scallops/",
+  "author": {
+    "@type": "Person",
+    "name": "Adam and Joanne Gallagher"
+  },
+  "description": "Pan-seared scallops with garlic, butter, and fresh basil. A simple, elegant, and incredibly fast meal.",
+  "prepTime": "PT10M",
+  "cookTime": "PT5M",
+  "totalTime": "PT15M",
+  "recipeYield": "2 servings",
+  "recipeCategory": "Main Course",
+  "recipeCuisine": "Seafood",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "312 kcal",
+    "fatContent": "16 g",
+    "saturatedFatContent": "8 g",
+    "cholesterolContent": "86 mg",
+    "sodiumContent": "845 mg",
+    "carbohydrateContent": "11 g",
+    "fiberContent": "1 g",
+    "sugarContent": "1 g",
+    "proteinContent": "31 g"
+  },
+  "recipeIngredient": [
+    "1 pound sea scallops",
+    "Salt and fresh ground black pepper",
+    "1 tablespoon high-heat oil (like avocado or grapeseed)",
+    "2 tablespoons unsalted butter",
+    "2 garlic cloves, minced",
+    "1/4 cup fresh basil leaves, thinly sliced",
+    "1 tablespoon fresh lemon juice"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Pat the scallops completely dry with paper towels. Season both sides with salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Heat a large skillet over medium-high heat. Add the oil and once shimmering, add the scallops in a single layer, making sure they don't touch."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sear the scallops without moving them for 2 minutes or until a golden brown crust has formed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Flip the scallops. Add the butter and garlic to the pan. Use a spoon to baste the scallops with the melting butter for about 1 minute."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove the pan from the heat. Stir in the fresh basil and lemon juice. Serve immediately."
+    }
+  ],
+  "keywords": "seared scallops, garlic basil, pan-seared seafood, 15-minute meal"
+},
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "30-Minute Spicy Pork and Sweet Potato Stew",
+  "url": "https://www.foodnetwork.com/recipes/food-network-kitchen/30-minute-spicy-pork-and-sweet-potato-stew-3362961",
+  "author": {
+    "@type": "Organization",
+    "name": "Food Network Kitchen"
+  },
+  "description": "A quick and hearty stew featuring pork tenderloin, sweet potatoes, and a kick of spice from jalapeños and chili powder.",
+  "prepTime": "PT10M",
+  "cookTime": "PT20M",
+  "totalTime": "PT30M",
+  "recipeYield": "4 servings",
+  "recipeCategory": "Stew",
+  "recipeCuisine": "American",
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "390 kcal",
+    "fatContent": "12 g",
+    "saturatedFatContent": "3 g",
+    "cholesterolContent": "74 mg",
+    "sodiumContent": "840 mg",
+    "carbohydrateContent": "42 g",
+    "fiberContent": "7 g",
+    "sugarContent": "11 g",
+    "proteinContent": "29 g"
+  },
+  "recipeIngredient": [
+    "1 tablespoon extra-virgin olive oil",
+    "1 pound pork tenderloin, cut into 1-inch chunks",
+    "1 medium onion, chopped",
+    "1 jalapeño, seeded and finely chopped",
+    "2 cloves garlic, minced",
+    "1 tablespoon chili powder",
+    "1 teaspoon ground cumin",
+    "2 medium sweet potatoes, peeled and cut into 1/2-inch chunks",
+    "1 can (14.5 ounces) diced tomatoes",
+    "2 cups low-sodium chicken broth",
+    "Kosher salt and freshly ground pepper",
+    "1/4 cup chopped fresh cilantro",
+    "Lime wedges, for serving"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Heat the olive oil in a large pot or Dutch oven over medium-high heat. Add the pork and cook until browned on all sides, about 5 minutes. Remove the pork to a plate."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the onion and jalapeño to the pot and cook until softened, about 3 minutes. Stir in the garlic, chili powder, and cumin and cook for 1 minute."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the sweet potatoes, tomatoes (with their juices), and chicken broth. Bring to a boil, then reduce the heat and simmer, covered, until the sweet potatoes are tender, about 10 to 12 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Return the pork to the pot and simmer until heated through, about 2 minutes. Season with salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the cilantro and serve with lime wedges."
+    }
+  ],
+  "keywords": "pork stew, sweet potato, spicy, 30-minute meal, healthy dinner"
 }
 
 ]
