@@ -1,12 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-// const recipesFile = Bun.file("./custom-recipes.json");
-// const recipes = await recipesFile.text().then((text) => JSON.parse(text));
-
-const recipes = [
-    [
+[
     {
   "@context": "https://schema.org/",
   "@type": "Recipe",
@@ -578,30 +570,5 @@ const recipes = [
   ],
   "keywords": "slow cooker beef stew, crockpot beef stew, Budget Bytes stew recipe"
 }
+
 ]
-]
-
-const server = new McpServer({
-  name: "KAI-Recipes",
-  version: "1.0.0",
-});
-
-const getRecipes = z.object();
-
-server.registerTool(
-  "list-recipes",
-  getRecipes,
-  async () => {
-    return {
-      content: [{ 
-        type: 'text', 
-        text: JSON.stringify(recipes),
-        mimeType: 'application/json' 
-      }],
-    };  }
-);
-
-const transport = new StdioServerTransport();
-console.log("Starting MCP server...");
-  await server.connect(transport);
-
