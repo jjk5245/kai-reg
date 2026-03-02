@@ -17,7 +17,7 @@ const recipeAgent = new Agent({
 try {
   const result = await run(
     recipeAgent,
-    "List all recipes."
+    "Get me 3 recipes that include chicken or beef.",
   );
   console.log("Agent response:", result.finalOutput);
 } catch (error) {

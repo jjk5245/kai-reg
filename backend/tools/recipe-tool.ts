@@ -1,607 +1,74 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-
-// const recipesFile = Bun.file("./custom-recipes.json");
-// const recipes = await recipesFile.text().then((text) => JSON.parse(text));
-
-const recipes = [
-    [
-    {
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Authentic Chicken Paprikash (Paprikás Csirke)",
-  "author": {
-    "@type": "Person",
-    "name": "Kimberly Killebrew"
-  },
-  "datePublished": "2018-10-15",
-  "description": "One of the most famous and beloved Hungarian dishes, featuring tender chicken in a rich, creamy paprika-infused sauce.",
-  "image": "https://www.daringgourmet.com/wp-content/uploads/2023/08/chicken-paprikash-traditional-hungarian.jpg",
-  "recipeCuisine": "Hungarian",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT10M",
-  "cookTime": "PT50M",
-  "totalTime": "PT1H",
-  "recipeYield": "6 servings",
-  "nutrition": {
-    "@type": "NutritionInformation",
-    "calories": "516 kcal",
-    "fatContent": "37 g",
-    "carbohydrateContent": "11 g",
-    "proteinContent": "32 g"
-  },
-  "recipeIngredient": [
-    "2 tablespoons pork lard or butter",
-    "3 pounds chicken pieces, bone-in and skin-on",
-    "2 medium yellow onions, finely chopped",
-    "2 cloves garlic, finely minced",
-    "2 Roma tomatoes, seeds removed and finely diced",
-    "1 Hungarian bell pepper, diced (optional)",
-    "3-4 tablespoons sweet Hungarian paprika",
-    "2 cups chicken broth",
-    "1 1/2 teaspoons sea salt",
-    "1/2 teaspoon freshly ground black pepper",
-    "3 tablespoons all-purpose flour",
-    "3/4 cup full fat sour cream",
-    "1/4 cup heavy whipping cream"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Heat the lard in a large Dutch oven or heavy pot and brown the chicken on all sides. Transfer the chicken to a plate."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "In the same oil, add the onions and fry until golden brown. Add garlic, tomatoes, and bell pepper if using; fry for 2-3 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Remove the pot from heat and stir in the paprika, salt, and black pepper (paprika can turn bitter if scorched)."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Return the chicken to the pot. Pour in the chicken broth so the chicken is mostly covered. Bring to a boil, then cover and simmer for about 40 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "In a small bowl, blend the flour into the sour cream and heavy cream to make a smooth paste."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Stir the cream paste into the sauce, whisking constantly over heat to avoid lumps. Simmer until thickened."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add salt and pepper to taste and return the chicken to the sauce to heat through. Serve with egg noodles or Hungarian nokedli."
-    }
-  ],
-  "keywords": "chicken paprikash, paprikas csirke, Hungarian chicken stew, paprika chicken",
-  "link": "https://www.daringgourmet.com/chicken-paprikash-recipe/"
-    },
-    {
-    "@context": "https://schema.org/",
-    "@type": "Recipe",
-    "name": "Creamy Tuscan Chicken",
-    "author": {
-        "@type": "Person",
-        "name": "Lena Abraham"
-    },
-    "datePublished": "2025-12-04",
-    "description": "A rich, flavorful Italian-inspired chicken dish with seared chicken breasts simmered in a creamy sauce with garlic, cherry tomatoes, and spinach.",
-    "image": "https://www.delish.com/cooking/recipe-ideas/a19636089/creamy-tuscan-chicken-recipe/", 
-    "recipeCuisine": "Italian",
-    "recipeCategory": "Main Course",
-    "prepTime": "PT10M",
-    "cookTime": "PT35M",
-    "totalTime": "PT45M",
-    "recipeYield": "4 servings",
-    "nutrition": {
-        "@type": "NutritionInformation",
-        "calories": "593 calories",
-        "fatContent": "33 g",
-        "carbohydrateContent": "4 g",
-        "proteinContent": "66 g"
-    },
-    "recipeIngredient": [
-        "1 tablespoon extra-virgin olive oil",
-        "4 boneless skinless chicken breasts",
-        "Kosher salt, to taste",
-        "Freshly ground black pepper, to taste",
-        "1 teaspoon dried oregano",
-        "3 tablespoons butter",
-        "3 cloves garlic, minced",
-        "1 1/2 cups cherry tomatoes, halved",
-        "3 cups baby spinach",
-        "1/2 cup heavy cream",
-        "1/4 cup freshly grated Parmesan cheese",
-        "Lemon wedges, for serving"
-    ],
-    "recipeInstructions": [
-        {
-        "@type": "HowToStep",
-        "text": "In a skillet over medium heat, heat the olive oil. Add the seasoned chicken breasts (salt, pepper, oregano) and cook until browned and cooked through, about 8 minutes per side. Remove from skillet and set aside."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "In the same skillet, melt the butter over medium heat. Stir in the garlic and cook until fragrant, about 1 minute."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "Add the cherry tomatoes to the skillet and season with salt and pepper. Cook until the tomato skins begin to burst."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "Add the spinach and cook until it begins to wilt."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "Stir in the heavy cream and Parmesan, bringing the mixture to a simmer. Reduce heat to low and simmer until slightly thickened, about 3 minutes."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "Return the chicken to the skillet and cook in the sauce until heated through, about 5–7 minutes."
-        },
-        {
-        "@type": "HowToStep",
-        "text": "Serve the chicken with lemon wedges alongside your choice of pasta, rice, or bread."
-        }
-    ],
-    "keywords": "Tuscan chicken, creamy chicken, Italian chicken dinner, chicken with spinach and tomatoes",
-    "link": "https://www.delish.com/cooking/recipe-ideas/a19636089/creamy-tuscan-chicken-recipe/"
-    },
-    {
-        "@context": "https://schema.org/",
-        "@type": "Recipe",
-        "name": "Slow Cooker Potato Soup",
-        "url": "https://www.gimmesomeoven.com/slow-cooker-potato-soup-recipe/",
-        "author": {
-            "@type": "Person",
-            "name": "Ali Martin"
-        },
-        "description": "This Slow Cooker Potato Soup is thick, creamy (without heavy cream), wonderfully flavorful, and made extra easy in the slow cooker.",
-        "image": "https://www.gimmesomeoven.com/wp-content/uploads/2015/12/slow-cooker-potato-soup-5.jpg",
-        "recipeCuisine": "American",
-        "recipeCategory": "Soup",
-        "prepTime": "PT10M",
-        "cookTime": "PT4H10M",
-        "totalTime": "PT4H20M",
-        "recipeYield": "8–10 servings",
-        "recipeIngredient": [
-            "6 slices cooked bacon, diced",
-            "3–4 cups good-quality chicken or vegetable stock",
-            "2 pounds Yukon gold potatoes, peeled and diced",
-            "1 medium white or yellow onion, peeled and diced",
-            "4 tablespoons bacon grease (or butter)",
-            "1/3 cup all-purpose flour",
-            "1 (12-ounce) can 2% evaporated milk",
-            "1 cup shredded reduced-fat sharp cheddar cheese",
-            "1/2 cup plain low-fat Greek yogurt or low-fat sour cream",
-            "1 teaspoon Kosher salt, or more to taste",
-            "1/2 teaspoon freshly-cracked black pepper",
-            "Optional toppings: thinly sliced green onions or chives, extra shredded cheese, extra bacon, sour cream"
-        ],
-        "recipeInstructions": [
-            {
-            "@type": "HowToStep",
-            "text": "Add the bacon, 3 cups chicken stock, potatoes and onion to the bowl of a large slow cooker, and stir to combine. Cook on low for 6–8 hours or on high for 3–4 hours, or until the potatoes are completely tender and cooked through."
-            },
-            {
-            "@type": "HowToStep",
-            "text": "Once the soup has slow cooked and is about ready to serve, cook the bacon grease (or butter) in a small saucepan on the stove over medium-high heat until melted. Whisk in the flour until completely combined, then gradually add in the evaporated milk while whisking until smooth. Let mixture cook until it reaches a simmer and thickens."
-            },
-            {
-            "@type": "HowToStep",
-            "text": "Pour the milk mixture into the slow cooker with the potatoes and stir until combined. Add in the cheddar cheese, Greek yogurt (or sour cream), salt and pepper, and stir until blended."
-            },
-            {
-            "@type": "HowToStep",
-            "text": "If desired, mash about half of the potatoes with a potato masher directly in the slow cooker to thicken the soup further. Stir again and adjust seasoning to taste."
-            },
-            {
-            "@type": "HowToStep",
-            "text": "Serve warm, garnished with your choice of toppings such as green onions, extra cheese, or additional bacon."
-            }
-        ]
-        },
-
-        {
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Homemade Chicken Noodle Soup",
-  "url": "https://www.delish.com/cooking/recipe-ideas/a51338/homemade-chicken-noodle-soup-recipe/",
-  "author": {
-    "@type": "Person",
-    "name": "Taylor Ann Spencer"
-  },
-  "description": "Classic homemade chicken noodle soup featuring tender chicken, hearty vegetables, and egg noodles in a savory broth — a comforting favorite for any season.", 
-  "image": "https://www.delish.com/cooking/recipe-ideas/a51338/homemade-chicken-noodle-soup-recipe/", 
-  "recipeCuisine": "American",
-  "recipeCategory": "Soup",
-  "prepTime": "PT15M",
-  "cookTime": "PT1H15M",
-  "totalTime": "PT1H30M",
-  "recipeYield": "6–8 servings",
-  "nutrition": {
-    "@type": "NutritionInformation",
-    "calories": "560 calories"
-  },
-  "recipeIngredient": [
-    "2 lb bone-in, skin-on chicken pieces, preferably a mix of chicken thighs and breasts",
-    "2 tbsp vegetable oil",
-    "4 tsp kosher salt, divided",
-    "8 cups low-sodium chicken stock",
-    "4 cups cold water",
-    "2 thyme sprigs",
-    "1 bay leaf",
-    "1 small yellow onion, coarsely chopped",
-    "2 celery ribs, sliced",
-    "1 large carrot, peeled and sliced",
-    "6 oz wide egg noodles",
-    "1 tsp freshly ground black pepper",
-    "1/4 cup finely chopped fresh parsley"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Heat oil in a large pot over medium-high heat. Season chicken with 2 tsp salt and brown on both sides."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add stock, water, thyme, and bay leaf. Bring to a bare simmer and cook until chicken breasts reach 165°F, about 20–30 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Remove chicken breasts; continue simmering dark meat about 40 minutes more. Transfer all cooked chicken to a cutting board, cool, remove skin and bones, and shred."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Discard bay leaf and thyme. Add onion, celery, and carrot to broth and simmer until just tender, about 5 minutes. Add egg noodles and cook until al dente, about 5 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Stir shredded chicken and pepper into soup. Season with remaining salt to taste and garnish with parsley before serving."
-    }
-  ]
-},
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Slow Cooker Beef Bourguignon",
-  "url": "https://therecipecritic.com/slow-cooker-beef-bourguignon/",
-  "author": {
-    "@type": "Person",
-    "name": "Alyssa Rivers"
-  },
-  "description": "Slow Cooker Beef Bourguignon has tender, melt-in-your-mouth beef and hearty vegetables cooked slowly in a rich, flavorful sauce — a comforting and delicious main course.",
-  "image": "https://therecipecritic.com/wp-content/uploads/2023/slow-cooker-beef-bourguignon.jpg",
-  "recipeCuisine": "French",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT20M",
-  "cookTime": "PT9H",
-  "totalTime": "PT9H20M",
-  "recipeYield": "6 servings",
-  "recipeIngredient": [
-    "5 slices bacon, diced",
-    "3 pounds boneless beef chuck, cut into 1-inch cubes",
-    "1 cup red cooking wine",
-    "2 cups chicken broth",
-    "1/2 cup tomato sauce",
-    "1/4 cup soy sauce",
-    "1/4 cup all-purpose flour",
-    "3 garlic cloves, minced",
-    "2 tablespoons minced fresh thyme (or 2 teaspoons dried thyme)",
-    "5 medium carrots, sliced",
-    "1 pound baby potatoes",
-    "8 ounces sliced fresh mushrooms",
-    "Fresh chopped parsley for garnish"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "In a large skillet, cook the diced bacon over medium-high heat until crisp, then transfer to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Season the beef with salt and pepper and brown it in the skillet, about 2–3 minutes per side. Transfer the beef to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add the red cooking wine to the skillet, scraping up browned bits. Simmer and reduce slightly, then slowly whisk in chicken broth, tomato sauce, and soy sauce. Whisk in the flour to thicken."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Pour the sauce mixture into the slow cooker over the beef and bacon."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add garlic, thyme, carrots, potatoes, and mushrooms to the slow cooker and stir to combine."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cook on LOW for 8–10 hours or on HIGH for 6 hours, until the beef is tender. Garnish with fresh chopped parsley before serving."
-    }
-  ],
-  "keywords": "slow cooker beef bourguignon, French stew, crockpot beef bourguignon, hearty beef stew"
-},
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Corned Beef and Cabbage Slow Cooker Recipe",
-  "url": "https://www.spendwithpennies.com/corned-beef-and-cabbage-slow-cooker-recipe/",
-  "author": {
-    "@type": "Person",
-    "name": "Holly Nilsson"
-  },
-  "description": "Tender corned beef, potatoes, carrots, and cabbage slow-cooked together in an easy one-pot meal perfect for St. Patrick’s Day or any cozy dinner.",
-  "image": "https://www.spendwithpennies.com/wp-content/uploads/2023/03/corned-beef-and-cabbage-slow-cooker.jpg",
-  "recipeCuisine": "American",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT10M",
-  "cookTime": "PT8H",
-  "totalTime": "PT8H10M",
-  "recipeYield": "6 servings",
-  "nutrition": {
-    "@type": "NutritionInformation",
-    "calories": "592 calories",
-    "carbohydrateContent": "32 g",
-    "proteinContent": "39 g",
-    "fatContent": "34 g",
-    "sodiumContent": "2817 mg"
-  },
-  "recipeIngredient": [
-    "3 to 4 pounds corned beef brisket uncooked, with spice packet",
-    "1 onion",
-    "3 cloves garlic, sliced",
-    "2 bay leaves",
-    "2 ½ to 3 cups water",
-    "2 pounds potatoes, peeled and quartered",
-    "2 large carrots, chopped",
-    "1 small head green cabbage, cut into wedges"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Chop the onion into large chunks and place in the bottom of a 6-quart slow cooker. Top with the corned beef and the seasoning packet." 
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Pour water into the slow cooker until it just about covers the corned beef. Add the sliced garlic and bay leaves."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cook on low for 8–10 hours."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "After the first 3 hours of cooking, add the potatoes and carrots to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "About 2 hours before serving, add the cabbage wedges to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Remove the corned beef from the slow cooker and let it rest for 15 minutes before slicing across the grain. Serve with the potatoes, carrots, and cabbage."
-    }
-  ],
-  "keywords": "Slow cooker corned beef and cabbage, crock pot corned beef, St. Patrick’s Day dinner, Irish-American recipe"
-},
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Slow Cooker Pork Loin Roast",
-  "url": "https://www.recipetineats.com/slow-cooker-pork-loin-roast/",
-  "author": {
-    "@type": "Person",
-    "name": "Nagi Maehashi"
-  },
-  "description": "Slow Cooker Pork Loin Roast cooked in a honey butter garlic sauce for tender, juicy pork with a rich syrupy sauce.", 
-  "image": "https://www.recipetineats.com/wp-content/uploads/2018/09/Slow-Cooker-Pork-Loin-Roast.jpg",
-  "recipeCuisine": "Western",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT10M",
-  "cookTime": "PT4H30M",
-  "totalTime": "PT4H40M",
-  "recipeYield": "8 servings",
-  "recipeIngredient": [
-    "1.75–2.5 kg (3.5–5 lb) pork loin or shoulder, skinless", 
-    "1.5 tbsp olive oil, separated", 
-    "2 tsp paprika", 
-    "2 tsp thyme", 
-    "1 tsp garlic powder", 
-    "1 tsp onion powder", 
-    "1/2 tsp cayenne pepper (optional)", 
-    "1/2 tsp black pepper", 
-    "2 tsp salt", 
-    "3/4 cup honey", 
-    "1/2 cup (125 g) unsalted butter", 
-    "5 cloves garlic, minced", 
-    "1/4 cup cider vinegar", 
-    "3 tsp cornflour/cornstarch mixed with a splash of water"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Rub the pork with about 1 tsp of oil. Mix together the spice rub (paprika, thyme, garlic powder, onion powder, cayenne pepper, pepper, salt) and sprinkle over the pork, patting to adhere."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Heat 1 tbsp oil in a large skillet over medium heat. Sear the pork on all sides until deep golden brown, then transfer to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "In the same pan wipe, melt the butter. Add garlic and cook for about 1 minute, then add honey and cider vinegar. Simmer briefly to combine and slightly reduce, then pour the sauce over the pork in the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cover and cook on LOW for 4–5 hours (longer if using shoulder) until the pork is tender and cooked through."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Remove the pork and let it rest covered with foil for 10–20 minutes. Pour all juices from the slow cooker into a saucepan, whisk in the cornflour slurry, and simmer to thicken into a syrupy sauce."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Slice the pork into thick slices and serve with plenty of honey butter sauce."
-    }
-  ],
-  "keywords": "slow cooker pork loin roast, honey butter pork, crockpot pork roast"
-},
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Slow Cooker Pork Cacciatore",
-  "url": "https://www.allrecipes.com/recipe/68943/slow-cooker-pork-cacciatore/",
-  "author": {
-    "@type": "Organization",
-    "name": "Allrecipes Test Kitchen"
-  },
-  "description": "Slow Cooker Pork Cacciatore is an Italian-inspired dish featuring boneless pork chops simmered with mushrooms, bell peppers, tomatoes, wine, and herbs in a rich sauce.", 
-  "image": "https://images.media-allrecipes.com/userphotos/allrecipes-images/6886/688687.jpg", 
-  "recipeCuisine": "Italian",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT20M",
-  "cookTime": "PT7H20M",
-  "totalTime": "PT7H40M",
-  "recipeYield": "4 servings",
-  "nutrition": {
-    "@type": "NutritionInformation",
-    "calories": "614 calories",
-    "fatContent": "31 g",
-    "carbohydrateContent": "42 g",
-    "proteinContent": "35 g"
-  },
-  "recipeIngredient": [
-    "4 boneless pork chops",
-    "2 tablespoons olive oil",
-    "1 onion, sliced",
-    "1 (8 ounce) package fresh mushrooms, sliced",
-    "1 green bell pepper, seeded and sliced into strips",
-    "1 (28 ounce) jar pasta sauce",
-    "1 (28 ounce) can diced tomatoes",
-    "½ cup dry white wine",
-    "2 large cloves garlic, minced",
-    "1 teaspoon Italian seasoning",
-    "½ teaspoon dried basil",
-    "4 slices mozzarella cheese"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Brown pork chops on both sides in a large skillet over medium-high heat, then transfer to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "In the same skillet, heat olive oil and cook the onion until softened. Add mushrooms and bell pepper and cook until vegetables are tender."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Stir in pasta sauce, diced tomatoes, white wine, garlic, Italian seasoning, and dried basil; pour the sauce mixture over the pork chops in the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cook on LOW for 7–8 hours until the pork is cooked through and tender."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "To serve, place a slice of mozzarella over each pork chop and spoon sauce over the top."
-    }
-  ],
-  "keywords": "slow cooker pork cacciatore, Italian pork chops, crockpot cacciatore"
-},
-{
-  "@context": "https://schema.org/",
-  "@type": "Recipe",
-  "name": "Crockpot Beef Stew",
-  "url": "https://www.budgetbytes.com/slow-cooker-beef-stew/",
-  "author": {
-    "@type": "Person",
-    "name": "Beth Moncel"
-  },
-  "description": "This hearty slow cooker beef stew features tender chunks of beef and a mix of vegetables simmered in a flavorful gravy—perfect for a cozy meal.",
-  "image": "https://www.budgetbytes.com/wp-content/uploads/2025/01/slow-cooker-beef-stew.jpg",
-  "recipeCuisine": "American",
-  "recipeCategory": "Main Course",
-  "prepTime": "PT15M",
-  "cookTime": "PT4H15M",
-  "totalTime": "PT4H30M",
-  "recipeYield": "8 servings",
-  "recipeIngredient": [
-    "2 lbs red potatoes",
-    "1 yellow onion",
-    "3 carrots",
-    "4 stalks celery",
-    "4 cloves garlic",
-    "1.5 lbs beef stew meat",
-    "2 Tbsp all-purpose flour",
-    "1/4 tsp salt",
-    "1/4 tsp freshly cracked black pepper",
-    "2 Tbsp cooking oil",
-    "2 cups beef broth",
-    "2 Tbsp Dijon mustard",
-    "1 Tbsp Worcestershire sauce",
-    "1 Tbsp soy sauce",
-    "1.5 tsp brown sugar",
-    "1.5 tsp dried rosemary",
-    "1.5 tsp dried thyme"
-  ],
-  "recipeInstructions": [
-    {
-      "@type": "HowToStep",
-      "text": "Dice the onion and red potatoes. Slice the carrots and celery, and mince the garlic; place the vegetables in the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Place the stew meat in a bowl and sprinkle with flour, salt, and pepper. Toss until evenly coated."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Heat a skillet over medium-high heat with cooking oil. Brown the flour-coated beef on all sides, then transfer to the slow cooker."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Reduce heat under the skillet and add beef broth, Dijon mustard, Worcestershire sauce, soy sauce, brown sugar, rosemary, and thyme, stirring until combined."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Pour the broth mixture over the ingredients in the slow cooker and stir to combine."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cover and cook on HIGH for 4 hours or LOW for 8 hours, until beef and vegetables are tender."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Stir the stew to allow the potatoes to break down slightly and naturally thicken the gravy. Taste and adjust seasoning as needed before serving."
-    }
-  ],
-  "keywords": "slow cooker beef stew, crockpot beef stew, Budget Bytes stew recipe"
-}
-]
-]
+import { recipes } from "./recipes";
 
 const server = new McpServer({
   name: "KAI-Recipes",
   version: "1.0.0",
 });
 
-const getRecipes = z.object();
+const proteinOptions = ["beef", "chicken", "pork"];
+
+const listRecipesSchema = z.object({
+  numRecipes: z.number().describe("The number of recipes to list"),
+  proteins: z.enum(proteinOptions).optional().array().describe("The proteins to filter recipes by"),
+});
 
 server.registerTool(
   "list-recipes",
-  getRecipes,
-  async () => {
-    return {
-      content: [{ 
-        type: 'text', 
-        text: JSON.stringify(recipes),
-        mimeType: 'application/json' 
-      }],
-    };  }
-);
+  {
+    title: "List Recipes",
+    description: "Lists recipes based on number and protein filters",
+    inputSchema: listRecipesSchema,
+  },
+  async ({ numRecipes, proteins=proteinOptions }) => {
+    try {
+        await Bun.write('debug.txt', `Received request to list recipes with numRecipes=${numRecipes} and proteins=${proteins}`);
+        const proteinRecipeMap = new Map<string, any[]>();
+        const numRecipesPerProtein = Math.ceil(numRecipes / proteins.length);
+        let numRecipesAdded = 0;
+        for (const recipe of recipes) {
+          const keywords = recipe.keywords ?? "";
+          const recipeProteins = proteins.filter((protein: string) => keywords.toLowerCase().includes(protein));
+          if (recipeProteins.length === 0) {
+            continue;
+          }
+          
+          const protein = recipeProteins[0] ?? "";
+          const proteinRecipes = proteinRecipeMap.get(protein) ?? [];
+          if (proteinRecipes.length  < numRecipesPerProtein && numRecipesAdded < numRecipes) {
+            proteinRecipes.push(recipe);
+            numRecipesAdded++;
+          }
+          proteinRecipeMap.set(protein, proteinRecipes);
+
+          if (numRecipesAdded >= numRecipes) {
+            break;
+          }
+          
+        }
+        
+        return {
+          content: [{ 
+            type: 'text', 
+            text: JSON.stringify(Array.from(proteinRecipeMap.values()).flat().slice(0, numRecipes)),
+            mimeType: 'application/json' 
+          }],
+        };
+      } catch (error) {
+        await Bun.write('error.txt', "Error in list-recipes tool: " + error);
+      }
+       return {
+          content: [{ 
+            type: 'text', 
+            text: JSON.stringify([]),
+            mimeType: 'application/json' 
+          }],
+        };
+  });
 
 const transport = new StdioServerTransport();
 console.log("Starting MCP server...");
-  await server.connect(transport);
+await server.connect(transport);
 

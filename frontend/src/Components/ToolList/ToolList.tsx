@@ -5,8 +5,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import { Card, Divider, Switch } from '@mui/material';
 
-const activeColor ="#496a81";
-const inactiveColor ="#773344";
+const activeColor ="#04a777";
+const inactiveColor ="#ed254e";
 
 export default function ToolList() {
     const exampleTools = [
@@ -21,12 +21,12 @@ export default function ToolList() {
             name: "tool 2",
             description: "tool 2 desc",
             location: "https://example-tool.com",
-            enabled: true,
+            enabled: false,
             accesible: false,
         },
     ];
   return (
-    <Card sx={{ margin: 'auto', minWidth: '400px', marginTop: '.5rem', width: '80%', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <Card sx={{ margin: 'auto', minWidth: '400px', marginTop: '1rem', width: '80%', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         <List subheader={<ListSubheader>Tools</ListSubheader>} >
             <Divider />
 
@@ -49,7 +49,10 @@ export default function ToolList() {
             </svg>
                 <ListSubheader>{et.name}</ListSubheader>
                 <ListItemText>{et.description}</ListItemText>
-                <Switch />
+                <Switch 
+                    checked={et.enabled}
+                    onChange={(e) => console.log(e.target.checked)}
+                />
             </ListItem>
         )}
 
