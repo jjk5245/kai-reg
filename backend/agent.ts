@@ -8,7 +8,7 @@ const recipeServer = new MCPServerStdio({
 
 const recipeAgent = new Agent({
   name: "RecipeAgent",
-  instructions: "You are a recipe assistant. Use the available tools to list and retrieve recipes.",
+  instructions: "You are a recipe assistant.",
   mcpServers: mcpServers.active,
 });
 
@@ -17,7 +17,8 @@ const recipeAgent = new Agent({
 try {
   const result = await run(
     recipeAgent,
-    "Get me 3 recipes that include chicken or beef.",
+    // "Get me 3 recipes that include chicken or beef.",
+    "I need you to plan dinner for me for the week, give me 4 recipes, and make a shopping list for those recipes.",
   );
   console.log("Agent response:", result.finalOutput);
 } catch (error) {

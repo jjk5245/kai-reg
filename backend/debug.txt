@@ -1,1 +1,10 @@
-Received request to list recipes with numRecipes=3 and proteins=beef,chicken
+Processing protein: beef
+Adding recipe: Corned Beef and Cabbage Slow Cooker Recipe
+Processing protein: chicken
+Adding recipe: Creamy Tuscan Chicken
+Processing protein: pork
+Processing protein: beef
+Adding recipe: Slow Cooker Beef Bourguignon
+Processing protein: chicken
+Adding recipe: Authentic Chicken Paprikash (Paprikás Csirke)
+Processing protein: pork

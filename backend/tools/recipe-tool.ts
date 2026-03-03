@@ -24,7 +24,6 @@ server.registerTool(
   },
   async ({ numRecipes, proteins=proteinOptions }) => {
     try {
-        await Bun.write('debug.txt', `Received request to list recipes with numRecipes=${numRecipes} and proteins=${proteins}`);
         const proteinRecipeMap = new Map<string, any[]>();
         const numRecipesPerProtein = Math.ceil(numRecipes / proteins.length);
         let numRecipesAdded = 0;
@@ -49,10 +48,29 @@ server.registerTool(
           
         }
         
+        const recipesToReturn = [];
+        let debugMessage = "";
+        while (recipesToReturn.length < numRecipes && Array.from(proteinRecipeMap.values()).length > 0) {
+          for (const p of proteins.filter(p => p)) {
+            debugMessage += `Processing protein: ${p}\n`;
+            if (p) {
+              const rs = proteinRecipeMap.get(p) ?? [];
+              if (rs.length > 0) {
+                const r = rs.pop();
+                debugMessage += `Adding recipe: ${r.name}\n`;
+                recipesToReturn.push(r);
+                proteinRecipeMap.set(p, rs);
+              }
+            }
+          }
+        }
+        await Bun.write('debug.txt', debugMessage);
+
+
         return {
           content: [{ 
             type: 'text', 
-            text: JSON.stringify(Array.from(proteinRecipeMap.values()).flat().slice(0, numRecipes)),
+            text: JSON.stringify(recipesToReturn),
             mimeType: 'application/json' 
           }],
         };
